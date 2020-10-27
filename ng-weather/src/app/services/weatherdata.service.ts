@@ -11,7 +11,9 @@ export class WeatherDataService {
   constructor(private http: HttpClient) {}
 
   load(city: String) {
-    return this.http.get(serviceUrl + '?q=' + city + '&APPID=' + apiKey);
+    return this.http.get(
+      serviceUrl + '?q=' + city + '&units=metric' + '&APPID=' + apiKey
+    );
   }
 
   getIconUrl(icon: String) {

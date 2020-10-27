@@ -1,5 +1,13 @@
 <form (ngSubmit)="submit()">
-  City:<br />
-  <input type="text" name="city" [(ngModel)]="city" /><br />
-  <input type="submit" value="Submit" />
+  <p>City:</p>
+  <p>
+    <input
+      class="type"
+      type="text"
+      name="city"
+      [(ngModel)]="city"
+      placeholder="Enter the city please"
+    />
+  </p>
+  <p><input class="submit" type="submit" value="Submit" /></p>
 </form>
