@@ -1,26 +1,6 @@
 <div class="container">
   <h1>{{ appTitle }}</h1>
-  <label for="">Country: </label>
-  <select
-    name="city"
-    class="rounded-inputs20 select-select col-md-3"
-    (change)="onChange($event.target.value)"
-  >
-    <option *ngFor="let country of countries" [value]="country.id">
-      {{ country.name }}
-    </option></select
-  ><br /><br />
-  <select
-    id="sel1"
-    name="Country"
-    class="rounded-inputs20 select-select col-md-3"
-  >
-    <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-  </select>
 
-  <div class="temperature-text__container">
-    <span class="temperature__text">{{ currentTemp }}</span>
-    <span class="temperature-metric__text">°</span>
-    <span class="weather-condition__text">{{ condition }}</span>
-  </div>
+  <app-display #display></app-display>
+  <app-selection (onSelection)="display.update($event)"></app-selection>
 </div>
