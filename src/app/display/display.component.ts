@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Weather } from '../../app/app.component';
+import { Weather } from '../models/weather';
+
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',

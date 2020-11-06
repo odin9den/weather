@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { WeatherLoadResponse } from '../../models/weather-load-response';
 import { WeatherDataService } from '../../services/weatherdata.service';
-import { Weather } from '../../app.component';
+import { Weather } from './../../models/weather';
 
 @Component({
   selector: 'app-selection',
@@ -15,12 +16,12 @@ export class SelectionComponent {
   constructor(private weatherData: WeatherDataService) {}
 
   submit() {
-    this.weatherData.load(this.city).subscribe((data) => {
-      this.weather.city = data['name'];
-      this.weather.conditions = data['weather'][0]['main'];
-      this.weather.temperature = Math.round(data['main']['temp']);
+    this.weatherData.load(this.city).subscribe((data: WeatherLoadResponse) => {
+      this.weather.city = data.name;
+      this.weather.conditions = data.weather[0].main;
+      this.weather.temperature = Math.round(data.main.temp);
       this.weather.icon = this.weatherData.getIconUrl(
-        data['weather'][0]['icon']
+        data.weather[0].icon
       );
 
       this.onSelection.emit(this.weather);
