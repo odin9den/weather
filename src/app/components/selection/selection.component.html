@@ -1,13 +1,13 @@
 <form (ngSubmit)="submit()">
   <p>City:</p>
   <p>
-    <input
-      class="type"
-      type="text"
-      name="city"
-      [(ngModel)]="city"
-      placeholder="Enter the city please"
-    />
+    <select ng-model="selectedCity">
+      <option [ngValue]="null">Choose city</option>
+      <option *ngFor="let city of cityList">
+        {{city}}
+      </option>
+    </select>
+    <select ng-model="selectedCity" ng-options="x for x in cityList"></select>
   </p>
   <p><input class="submit" type="submit" value="Submit" /></p>
 </form>
