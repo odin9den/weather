@@ -4,7 +4,7 @@
     <select ng-model="selectedCity">
       <option [ngValue]="null">Choose city</option>
       <option *ngFor="let city of cityList">
-        {{city}}
+        {{ city }}
       </option>
     </select>
     <select ng-model="selectedCity" ng-options="x for x in cityList"></select>
